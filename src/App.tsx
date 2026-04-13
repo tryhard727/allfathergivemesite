@@ -18,55 +18,34 @@ import {
 import { resumeData } from './constants';
 import { useState, useEffect, useRef } from 'react';
 
-const DataStream = () => {
+const WaveformBackground = () => {
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-10">
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={i}
-          initial={{ y: -100, x: `${Math.random() * 100}%` }}
-          animate={{ y: '100vh' }}
-          transition={{
-            duration: Math.random() * 10 + 10,
-            repeat: Infinity,
-            ease: "linear",
-            delay: Math.random() * 20
-          }}
-          className="absolute w-[1px] h-20 bg-gradient-to-b from-transparent via-neon-green to-transparent"
-        />
-      ))}
-    </div>
-  );
-};
-
-const CircuitBackground = () => {
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-      <DataStream />
-      <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-        <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-          <path d="M 10 10 H 90 V 90 H 10 Z" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-neon-green/30" />
-          <circle cx="10" cy="10" r="1.5" fill="currentColor" className="text-neon-green" />
-          <circle cx="90" cy="90" r="1.5" fill="currentColor" className="text-neon-green" />
-          <path d="M 10 10 L 30 30 M 90 90 L 70 70" stroke="currentColor" strokeWidth="0.5" className="text-neon-green/30" />
-        </pattern>
-        <rect width="100%" height="100%" fill="url(#circuit)" />
+    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-[0.15]">
+      <div className="absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+      <svg className="w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        {[...Array(6)].map((_, i) => (
+          <motion.path
+            key={i}
+            d={`M 0 ${50 + i * 100} L 100 ${50 + i * 100} L 100 ${10 + i * 100} L 200 ${10 + i * 100} L 200 ${90 + i * 100} L 300 ${90 + i * 100} L 300 ${50 + i * 100} L 400 ${50 + i * 100} L 400 ${10 + i * 100} L 500 ${10 + i * 100} L 500 ${50 + i * 100} L 600 ${50 + i * 100} L 600 ${90 + i * 100} L 700 ${90 + i * 100} L 700 ${50 + i * 100} L 800 ${50 + i * 100} L 800 ${10 + i * 100} L 900 ${10 + i * 100} L 900 ${90 + i * 100} L 1000 ${90 + i * 100} L 1000 ${50 + i * 100} L 1100 ${50 + i * 100} L 1100 ${10 + i * 100} L 1200 ${10 + i * 100} L 1200 ${50 + i * 100} L 1300 ${50 + i * 100} L 1300 ${90 + i * 100} L 1400 ${90 + i * 100} L 1400 ${50 + i * 100} L 1500 ${50 + i * 100} L 1500 ${10 + i * 100} L 1600 ${10 + i * 100} L 1600 ${50 + i * 100} L 1700 ${50 + i * 100} L 1700 ${90 + i * 100} L 1800 ${90 + i * 100} L 1800 ${50 + i * 100} L 1900 ${50 + i * 100} L 1900 ${10 + i * 100} L 2000 ${10 + i * 100}`}
+            fill="none"
+            stroke={i % 3 === 0 ? "#39FF14" : i % 3 === 1 ? "#00F3FF" : "#FF3333"}
+            strokeWidth="3"
+            strokeLinecap="square"
+            initial={{ pathLength: 0, x: -100 }}
+            animate={{ pathLength: 1, x: [0, -100] }}
+            transition={{
+              pathLength: { duration: 5, ease: "linear" },
+              x: { duration: 2, repeat: Infinity, ease: "linear" }
+            }}
+          />
+        ))}
       </svg>
       <motion.div 
         animate={{ 
-          opacity: [0.1, 0.3, 0.1],
-          scale: [1, 1.1, 1]
+          opacity: [0.1, 0.2, 0.1],
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-neon-green/5 rounded-full blur-[120px]" 
-      />
-      <motion.div 
-        animate={{ 
-          opacity: [0.1, 0.2, 0.1],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear", delay: 2 }}
-        className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-neon-pink/5 rounded-full blur-[150px]" 
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-eda-signal-high/5 rounded-full blur-[120px]" 
       />
     </div>
   );
@@ -114,53 +93,72 @@ const SkillItem = ({ skill, color = "green" }: { skill: string, color?: "green" 
       className="flex items-center justify-between py-2 border-b border-slate-800/30 group cursor-default"
     >
       <div className="flex items-center space-x-3">
-        <div className={`w-1 h-1 rounded-full ${dotColor} shadow-[0_0_8px_rgba(0,0,0,0.5)] ${glowColor} group-hover:scale-150 transition-transform`} />
+        <div className={`w-1 h-1 shadow-[0_0_8px_rgba(0,0,0,0.5)] ${glowColor} group-hover:scale-150 transition-transform flex-shrink-0 relative`} style={{ backgroundColor: color === "green" ? "#39FF14" : color === "pink" ? "#FF007F" : color === "yellow" ? "#CCFF00" : "#00F3FF" }}>
+          {/* Create a small square pad like a PCB pad instead of a rounded dot */}
+        </div>
         <span className={`text-slate-400 ${textColor} transition-colors font-mono text-sm tracking-tight`}>{skill}</span>
       </div>
       <div className="opacity-0 group-hover:opacity-100 transition-opacity font-mono text-[8px] text-slate-600 uppercase tracking-tighter">
-        0x{Math.floor(Math.random() * 256).toString(16).padStart(2, '0')}
+        <span className="text-neon-cyan">WIRE</span> {skill.replace(/[^A-Za-z0-9]/g, '_').toUpperCase()}_w;
       </div>
     </motion.div>
   );
 };
 
-const ElectronStream = () => {
+const VerilogTerminal = () => {
+  const codeLines = [
+    '<span class="text-neon-pink">module</span> <span class="text-neon-green">top_tb</span>;',
+    '  <span class="text-neon-pink">import</span> uvm_pkg::*;',
+    '  <span class="text-neon-pink">`include</span> <span class="text-neon-yellow">"uvm_macros.svh"</span>',
+    '  ',
+    '  <span class="text-neon-cyan">logic</span> clk;',
+    '  <span class="text-neon-cyan">logic</span> rst_n;',
+    '  <span class="text-neon-cyan">logic</span> [31:0] data_bus;',
+    '  ',
+    '  <span class="text-neon-pink">initial begin</span>',
+    '    clk = 0;',
+    '    <span class="text-neon-pink">forever</span> #5 clk = ~clk;',
+    '  <span class="text-neon-pink">end</span>',
+    '  ',
+    '  <span class="text-[10px] text-slate-500">// Simulating RTL Verification Environment...</span>',
+    '  <span class="text-neon-green">initial</span> <span class="text-neon-pink">begin</span>',
+    '    $display(<span class="text-neon-yellow">"UVM_INFO: Starting tests..."</span>);',
+    '    run_test(<span class="text-neon-yellow">"base_test"</span>);',
+    '  <span class="text-neon-pink">end</span>',
+    '<span class="text-neon-pink">endmodule</span>'
+  ];
+
   return (
-    <div className="absolute inset-0 pointer-events-none">
-      {[...Array(8)].map((_, i) => (
+    <div className="w-full max-w-lg mx-auto bg-[#0d1117] border border-slate-700/50 rounded-lg shadow-2xl overflow-hidden font-mono text-[10px] sm:text-xs">
+      <div className="bg-[#161b22] px-4 py-2 border-b border-slate-700/50 flex items-center space-x-2">
+        <div className="w-3 h-3 rounded-full bg-red-500/80" />
+        <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+        <div className="w-3 h-3 rounded-full bg-green-500/80" />
+        <span className="text-slate-400 ml-4">vcs -sverilog top_tb.sv</span>
+      </div>
+      <div className="p-6 text-slate-300 leading-relaxed overflow-x-auto">
         <motion.div
-          key={i}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: [0, 1, 0],
-            scale: [0.5, 1, 0.5],
-            x: [Math.cos(i * 45) * 40, Math.cos(i * 45) * 120],
-            y: [Math.sin(i * 45) * 40, Math.sin(i * 45) * 120],
-          }}
-          transition={{
-            duration: 2 + Math.random() * 2,
-            repeat: Infinity,
-            ease: "easeOut",
-            delay: i * 0.4
-          }}
-          className="absolute top-1/2 left-1/2 w-1 h-1 rounded-full bg-neon-cyan shadow-[0_0_8px_#00F3FF]"
-        />
-      ))}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={`orbit-${i}`}
-          animate={{ rotate: 360 }}
-          transition={{ duration: 10 + i * 2, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           transition={{ duration: 1 }}
         >
+          {codeLines.map((line, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: idx * 0.15 + 0.5, duration: 0.3 }}
+              dangerouslySetInnerHTML={{ __html: line }}
+              className="whitespace-pre"
+            />
+          ))}
           <motion.div 
-            animate={{ opacity: [0.2, 0.8, 0.2] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="w-1.5 h-1.5 rounded-full bg-neon-pink shadow-[0_0_8px_#FF007F]"
-            style={{ marginLeft: 80 + i * 15 }}
+            animate={{ opacity: [1, 0] }}
+            transition={{ repeat: Infinity, duration: 0.8 }}
+            className="w-2 h-4 bg-slate-400 mt-2 inline-block"
           />
         </motion.div>
-      ))}
+      </div>
     </div>
   );
 };
@@ -222,7 +220,7 @@ export default function App() {
 
       {/* Hero Section */}
       <section id="about" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
-        <CircuitBackground />
+        <WaveformBackground />
         
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -297,47 +295,29 @@ export default function App() {
                 transition={{ duration: 1 }}
                 className="relative"
               >
-                <div className="aspect-square glass-panel p-12 rounded-full border-neon-cyan/20 relative flex items-center justify-center">
-                  <div className="absolute inset-0 border border-dashed border-slate-800 rounded-full animate-[spin_30s_linear_infinite]" />
-                  <div className="absolute inset-4 border border-dashed border-neon-cyan/10 rounded-full animate-[spin_25s_linear_infinite_reverse]" />
-                  
-                  <ElectronStream />
-                  
-                  <div className="relative z-10 text-center">
-                    <motion.div
-                      animate={{ 
-                        opacity: [0.7, 1, 0.7],
-                        scale: [1, 1.05, 1],
-                        filter: ["drop-shadow(0 0 10px rgba(0,243,255,0.3))", "drop-shadow(0 0 25px rgba(0,243,255,0.6))", "drop-shadow(0 0 10px rgba(0,243,255,0.3))"]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <Cpu size={120} className="text-neon-cyan neon-glow-cyan mb-6" />
-                    </motion.div>
-                    <div className="font-mono text-xs text-slate-500 uppercase tracking-[0.3em]">Core Processor</div>
-                    <div className="text-2xl font-bold text-white mt-1">RTL_VERIF_v1.0</div>
-                  </div>
+                <div className="relative z-10 w-full flex items-center justify-center">
+                  <VerilogTerminal />
                 </div>
                 
                 {/* Floating Stats */}
                 <motion.div 
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-0 right-0 glass-panel p-4 rounded border-neon-pink/30"
+                  className="absolute -top-10 -right-10 glass-panel p-4 rounded border-eda-signal-high/30 z-20 hidden xl:block"
                 >
-                  <Activity size={16} className="text-neon-pink mb-2" />
-                  <div className="text-[10px] font-mono text-slate-500 uppercase">Signal Integrity</div>
-                  <div className="text-lg font-bold text-white">99.9%</div>
+                  <Activity size={16} className="text-eda-signal-high mb-2" />
+                  <div className="text-[10px] font-mono text-slate-500 uppercase">Coverage</div>
+                  <div className="text-lg font-bold text-white">100%</div>
                 </motion.div>
                 
                 <motion.div 
                   animate={{ y: [0, 15, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="absolute bottom-10 left-0 glass-panel p-4 rounded border-neon-yellow/30"
+                  className="absolute -bottom-10 -left-10 glass-panel p-4 rounded border-eda-signal-z/30 z-20 hidden xl:block"
                 >
-                  <Layers size={16} className="text-neon-yellow mb-2" />
-                  <div className="text-[10px] font-mono text-slate-500 uppercase">Logic Layers</div>
-                  <div className="text-lg font-bold text-white">128-bit</div>
+                  <Layers size={16} className="text-eda-signal-z mb-2" />
+                  <div className="text-[10px] font-mono text-slate-500 uppercase">Logic Cells</div>
+                  <div className="text-lg font-bold text-white">1.2M</div>
                 </motion.div>
               </motion.div>
             </div>

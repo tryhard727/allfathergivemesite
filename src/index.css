@@ -10,9 +10,13 @@
   --color-neon-yellow: #CCFF00;
   --color-neon-cyan: #00F3FF;
   
-  --color-dark-bg: #020617;
-  --color-dark-surface: #0f172a;
-  --color-dark-border: #1e293b;
+  --color-dark-bg: #030712; 
+  --color-dark-surface: #111827;
+  --color-dark-border: #1f2937;
+  
+  --color-eda-signal-high: #39FF14;
+  --color-eda-signal-low: #FF3333;
+  --color-eda-signal-z: #00F3FF;
 }
 
 @layer base {
