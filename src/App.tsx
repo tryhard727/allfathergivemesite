@@ -207,14 +207,14 @@ export default function App() {
               </a>
             ))}
           </div>
-          <motion.button
+          <motion.a
+            href="https://tryhard727.github.io/canvas/"
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(57, 255, 20, 0.3)" }}
             whileTap={{ scale: 0.95 }}
-            className="bg-neon-green text-dark-bg px-6 py-2 rounded font-bold text-xs uppercase tracking-widest transition-all"
-            onClick={() => window.print()}
+            className="bg-neon-green text-dark-bg px-6 py-2 rounded font-bold text-xs uppercase tracking-widest transition-all inline-block text-center"
           >
             Resume
-          </motion.button>
+          </motion.a>
         </div>
       </nav>
 
