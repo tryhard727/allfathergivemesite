@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-neon-green: #39FF14;
+  --color-neon-pink: #FF007F;
+  --color-neon-yellow: #CCFF00;
+  --color-neon-cyan: #00F3FF;
+  
+  --color-dark-bg: #020617;
+  --color-dark-surface: #0f172a;
+  --color-dark-border: #1e293b;
+}
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-slate-300 antialiased selection:bg-neon-green/30 selection:text-white;
+  }
+}
+
+.glass-panel {
+  @apply bg-slate-900/40 backdrop-blur-xl border border-slate-800/50 shadow-2xl;
+}
+
+.section-padding {
+  @apply py-24 px-6 md:px-12 lg:px-24;
+}
+
+.neon-glow-green {
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
+}
+
+.neon-glow-pink {
+  text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+}
+
+.neon-glow-yellow {
+  text-shadow: 0 0 10px rgba(204, 255, 0, 0.5);
+}
+
+.neon-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+}
+
+.scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 99;
+  background: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(57, 255, 20, 0.02) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0.1;
+  position: fixed;
+  bottom: 100%;
+  left: 0;
+  pointer-events: none;
+  animation: scanline 10s linear infinite;
+}
+
+@keyframes scanline {
+  0% {
+    bottom: 100%;
+  }
+  100% {
+    bottom: -100px;
+  }
+}
+
+.circuit-pattern {
+  background-image: radial-gradient(rgba(57, 255, 20, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
+
+.glow-border-green {
+  @apply border-neon-green/20 hover:border-neon-green/50 transition-colors duration-500;
+  box-shadow: 0 0 15px rgba(57, 255, 20, 0.05);
+}
+
+.glow-border-pink {
+  @apply border-neon-pink/20 hover:border-neon-pink/50 transition-colors duration-500;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.05);
+}
+
+.glow-border-yellow {
+  @apply border-neon-yellow/20 hover:border-neon-yellow/50 transition-colors duration-500;
+  box-shadow: 0 0 15px rgba(204, 255, 0, 0.05);
+}
+
+.glow-border-cyan {
+  @apply border-neon-cyan/20 hover:border-neon-cyan/50 transition-colors duration-500;
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.05);
+}
+
