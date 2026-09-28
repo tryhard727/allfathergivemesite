@@ -20,7 +20,7 @@ export default function App() {
         <nav aria-label="Main navigation">
           {['about','skills','experience','projects','background','contact'].map((item, i) => <a key={item} href={'#'+item}><span className="nav-number">0{i+1}</span>{item}</a>)}
         </nav>
-        <a className="top-cta" href={resumeData.contact.linkedin} target="_blank" rel="noreferrer">Connect <ArrowUpRight size={14}/></a>
+        <div className="topbar-actions"><a className="simple-view-link" href="https://tryhard727.github.io/canvas/" target="_blank" rel="noreferrer">Simple view <ArrowUpRight size={14}/></a><a className="top-cta" href={resumeData.contact.linkedin} target="_blank" rel="noreferrer">Connect <ArrowUpRight size={14}/></a></div>
       </header>
 
       <section id="home" className="hero">
