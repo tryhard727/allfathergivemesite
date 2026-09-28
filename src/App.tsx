@@ -20,7 +20,7 @@ export default function App() {
         <nav aria-label="Main navigation">
           {['about','skills','experience','projects','background','contact'].map((item, i) => <a key={item} href={'#'+item}><span className="nav-number">0{i+1}</span>{item}</a>)}
         </nav>
-        <div className="topbar-actions"><a className="simple-view-link" href="https://tryhard727.github.io/canvas/" target="_blank" rel="noreferrer">Simple view <ArrowUpRight size={14}/></a><a className="top-cta" href={resumeData.contact.linkedin} target="_blank" rel="noreferrer">Connect <ArrowUpRight size={14}/></a></div>
+        <a className="top-cta" href={resumeData.contact.linkedin} target="_blank" rel="noreferrer">Connect <ArrowUpRight size={14}/></a>
       </header>
 
       <section id="home" className="hero">
@@ -29,7 +29,7 @@ export default function App() {
           <p className="eyebrow">PORTFOLIO // ENGINEER PROFILE</p>
           <h1>LAKSHMAN<br/><span>KUMAR DARA</span></h1>
           <p className="hero-tagline">{resumeData.tagline}. <span>Electronics & Communication Engineer</span> focused on Digital Design & RTL Verification.</p>
-          <div className="hero-actions"><a className="button-primary" href="#projects"><Terminal size={15}/> Explore projects <ArrowUpRight size={15}/></a><a className="button-secondary" href="#contact">Initiate contact <ArrowUpRight size={15}/></a></div>
+          <div className="hero-actions"><a className="button-primary" href="#projects"><Terminal size={15}/> Explore projects <ArrowUpRight size={15}/></a><a className="button-secondary" href="https://tryhard727.github.io/canvas/" target="_blank" rel="noreferrer">Résumé <ArrowUpRight size={15}/></a></div>
           <div className="contact-strip">
             <a href={'mailto:'+resumeData.contact.email}><Mail size={14}/>{resumeData.contact.email}</a>
             <span><MapPin size={14}/>{resumeData.contact.location}</span>
