@@ -6,12 +6,12 @@ export const resumeData: ResumeData = {
   contact: {
     email: "klakshman616@gmail.com",
     phone: "7396360074",
-    location: "Vizianagaram, Andhra Pradesh | Bangalore, Karnataka",
+    location: "Bengaluru, Karnataka, India",
     linkedin: "https://www.linkedin.com/in/lakshman-kumar-2118b31b7/",
     github: "https://github.com/tryhard727",
     discord: "0x1z_"
   },
-  summary: "ECE graduate focused on Digital Design and Verification of RTL. Developed strong technical proficiency in HDLs and HVLs. Driven by a commitment to innovation in chip architecture and verification methodologies. Aiming to leverage skills for advanced challenges within VLSI and SoC design and verification environments.",
+  summary: "ECE graduate focused on digital RTL design and functional verification. Experienced with Verilog, SystemVerilog, UVM, assertions, and bus protocols through hands-on design and verification projects. Interested in RTL implementation, verification methodology, and SoC-level design.",
   professionalQualification: {
     institution: "Maven Silicon Softech Pvt. Ltd.",
     course: "Advanced VLSI Design and Verification course",
@@ -39,38 +39,12 @@ export const resumeData: ResumeData = {
     }
   ],
   skills: [
-    {
-      category: "HDL & HVL/Framework",
-      items: ["Verilog", "SystemVerilog", "SVA", "UVM"]
-    },
-    {
-      category: "Protocols",
-      items: ["AXI", "APB", "SPI"]
-    },
-    {
-      category: "EDA Tools",
-      items: ["VCS", "Questa Sim", "Xilinx ISE", "Vivado", "Synopsys Design Compiler", "VC Spyglass Lint", "Fuse", "Icarus Verilog", "Verilator", "GTK Wave", "Verible", "Dsim(Altair)", "Slang Server", "svlangserver", "svls", "Yosys"]
-    },
-    {
-      category: "Programming Languages",
-      items: ["C Programming [DSA]", "Python"]
-    },
-    {
-      category: "Tools",
-      items: ["MATLAB", "Octave", "SciLab", "Arduino IDE", "Desmos", "Logisim"]
-    },
-    {
-      category: "Core Skills",
-      items: ["RTL Coding", "FSM-based design", "Simulation", "Code Coverage", "CRCDV", "Regression Testing", "Functional Coverage", "Synthesis", "Linting", "Embedded Systems", "IoT"]
-    },
-    {
-      category: "Non Core Skills",
-      items: ["API", "Cloud", "Building from source", "ADB", "Github Codespaces", "Virtual Machines", "Docker", "Prompting"]
-    },
-    {
-      category: "Non Technical Skills",
-      items: ["Critical Thinking", "Problem Solving", "Planning", "First Principles Thinking", "Reasoning"]
-    }
+    { category: "RTL & Verification", items: ["Verilog", "SystemVerilog", "UVM", "SVA", "Functional Coverage", "Regression Testing"] },
+    { category: "Protocols", items: ["AXI3", "APB", "SPI"] },
+    { category: "EDA & Simulation", items: ["VCS", "Questa Sim", "Vivado", "Xilinx ISE", "Verilator", "Icarus Verilog", "GTKWave", "Yosys", "Verible"] },
+    { category: "Design Methods", items: ["Synthesizable RTL", "FSM Design", "RTL Simulation", "Linting", "Synthesis", "CRCDV"] },
+    { category: "Programming", items: ["C", "Python", "Bash", "Make"] },
+    { category: "Engineering Tools", items: ["GNU/Linux", "Git", "Docker", "MATLAB", "Arduino IDE", "Logisim"] }
   ],
   projects: [
     {
