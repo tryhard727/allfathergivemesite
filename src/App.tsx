@@ -20,7 +20,7 @@ export default function App() {
         <nav aria-label="Main navigation">
           {['about','skills','experience','projects','background','contact'].map((item, i) => <a key={item} href={'#'+item}><span className="nav-number">0{i+1}</span>{item}</a>)}
         </nav>
-        <a className="top-cta" href={resumeData.contact.linkedin} target="_blank" rel="noreferrer">Connect <ArrowUpRight size={14}/></a>
+        <a className="top-cta" href={resumeData.contact.github || 'https://github.com/tryhard727'} target="_blank" rel="noreferrer">GitHub <Github size={14}/></a>
       </header>
 
       <section id="home" className="hero">
