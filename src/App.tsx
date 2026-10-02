@@ -26,9 +26,9 @@ export default function App() {
       <section id="home" className="hero">
         <div className="hero-copy">
           <div className="system-state"><span className="status-dot" /> DIGITAL DESIGN / RTL VERIFICATION <span className="state-divider">•</span> INDIA</div>
-          <p className="eyebrow">PORTFOLIO // ENGINEER PROFILE</p>
-          <h1>LAKSHMAN<br/><span>KUMAR DARA</span></h1>
-          <p className="hero-tagline">{resumeData.tagline}. <span>Electronics & Communication Engineer</span> focused on Digital Design & RTL Verification.</p>
+          <p className="eyebrow">ENGINEERING PORTFOLIO // DIGITAL VLSI</p>
+          <h1>RTL DESIGN<br/><span>&amp; VERIFICATION</span></h1>
+          <p className="hero-tagline">Designing and verifying digital hardware with <span>SystemVerilog, UVM, and assertions.</span> ECE graduate building toward RTL design and SoC verification.</p>
           <div className="hero-actions"><a className="button-primary" href="#projects"><Terminal size={15}/> Explore projects <ArrowUpRight size={15}/></a><a className="button-secondary" href="https://tryhard727.github.io/canvas/" target="_blank" rel="noreferrer">Résumé <ArrowUpRight size={15}/></a></div>
           <div className="contact-strip">
             <a href={'mailto:'+resumeData.contact.email}><Mail size={14}/>{resumeData.contact.email}</a>
@@ -40,8 +40,8 @@ export default function App() {
           <div className="console-body">
             <p className="console-muted"># Initializing engineer profile...</p>
             <p><b className="syntax-orange">const</b> engineer = {'{'}</p>
-            <p className="indent"><span className="syntax-key">name</span>: <span className="syntax-green">'{resumeData.name}'</span>,</p>
-            <p className="indent"><span className="syntax-key">domain</span>: <span className="syntax-green">'Digital VLSI'</span>,</p>
+            <p className="indent"><span className="syntax-key">discipline</span>: <span className="syntax-green">'Digital VLSI'</span>,</p>
+            <p className="indent"><span className="syntax-key">location</span>: <span className="syntax-green">'Bengaluru, India'</span>,</p>
             <p className="indent"><span className="syntax-key">focus</span>: [<span className="syntax-green">'RTL'</span>, <span className="syntax-green">'UVM'</span>, <span className="syntax-green">'SVA'</span>],</p>
             <p className="indent"><span className="syntax-key">status</span>: <span className="syntax-green">'Building & verifying'</span></p>
             <p>{'}'};</p>
