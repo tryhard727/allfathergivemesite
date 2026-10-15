@@ -50,7 +50,7 @@ export const resumeData: ResumeData = {
     {
       title: "AXI VIP",
       description: "Built VIP compliant to the AXI Protocol and checked through Assertions.",
-      link: "https://github.com/tryhard727/axi_uvm_vip",
+      link: "https://tryhard727.github.io/axi_uvm_vip/",
       highlights: [
         "Verified Features such as Multiple Outstanding, Out of Order Completion/Interleaving, Burst Modes, Independent Channels",
         "Introduced Random Behaviour to Identify Corner Cases"
@@ -59,7 +59,7 @@ export const resumeData: ResumeData = {
     {
       title: "APB to SPI Bridge",
       description: "Design and Verification of a bridge that enables communication between devices using APB and SPI using UVM and Verilog.",
-      link: "https://github.com/tryhard727/spi_uvm_ral",
+      link: "https://tryhard727.github.io/spi_uvm_ral/",
       highlights: [
         "Implemented Backdoor access through RAL for access of Control Registers",
         "Implemented Virtual Sequence, Virtual Sequencer for scalability"
